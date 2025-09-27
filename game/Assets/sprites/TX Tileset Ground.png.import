@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dljtvnp31kgqc"
-path="res://.godot/imported/Cat-Sheet.png-092647e2b80db194cb829cb9901137c7.ctex"
+uid="uid://unk3lrq7npy8"
+path="res://.godot/imported/TX Tileset Ground.png-7131219de8c12cbc9e2433133b6b9cca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cat 50 Animations/Cat-Sheet.png"
-dest_files=["res://.godot/imported/Cat-Sheet.png-092647e2b80db194cb829cb9901137c7.ctex"]
+source_file="res://Assets/sprites/TX Tileset Ground.png"
+dest_files=["res://.godot/imported/TX Tileset Ground.png-7131219de8c12cbc9e2433133b6b9cca.ctex"]
 
 [params]
 

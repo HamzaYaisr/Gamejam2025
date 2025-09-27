@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dawub7ufc4l7j"
-path="res://.godot/imported/knight.png-f2df08b890c4ea830c735d8e0f73a8e2.ctex"
+uid="uid://bx11cc0ytc11n"
+path="res://.godot/imported/TX FX Torch Flame.png-2deac29c1905e72fcba13d374dfe8b2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/knight.png"
-dest_files=["res://.godot/imported/knight.png-f2df08b890c4ea830c735d8e0f73a8e2.ctex"]
+source_file="res://Assets/sprites/TX FX Torch Flame.png"
+dest_files=["res://.godot/imported/TX FX Torch Flame.png-2deac29c1905e72fcba13d374dfe8b2f.ctex"]
 
 [params]
 

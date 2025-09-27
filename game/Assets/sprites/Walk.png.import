@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0wxtwmqvle8u"
-path="res://.godot/imported/slime_green.png-82ab2b7a3783e85117231b17359f2c2e.ctex"
+uid="uid://f6xqr1en2pkk"
+path="res://.godot/imported/Walk.png-bb72493e6aba2317ad2747cf718b27b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/slime_green.png"
-dest_files=["res://.godot/imported/slime_green.png-82ab2b7a3783e85117231b17359f2c2e.ctex"]
+source_file="res://Assets/sprites/Walk.png"
+dest_files=["res://.godot/imported/Walk.png-bb72493e6aba2317ad2747cf718b27b6.ctex"]
 
 [params]
 
