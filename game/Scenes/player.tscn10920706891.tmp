@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c8vkxrhkn1x14"]
+[gd_scene load_steps=38 format=3 uid="uid://c8vkxrhkn1x14"]
 
 [ext_resource type="Script" uid="uid://b70hlgdqo5tts" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://f6xqr1en2pkk" path="res://Assets/sprites/Walk.png" id="2_cvnsp"]
@@ -235,11 +235,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3smsa"]
 size = Vector2(13, 24)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3smsa"]
-radius = 58.077534
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cvnsp")
+attack_damage = null
+attack_duration = null
+attack_cooldown = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(5, -10)
@@ -255,8 +255,6 @@ shape = SubResource("RectangleShape2D_3smsa")
 script = ExtResource("7_3smsa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(45, 6)
-shape = SubResource("CircleShape2D_3smsa")
 
 [node name="AttackTimer" type="Timer" parent="."]
 
