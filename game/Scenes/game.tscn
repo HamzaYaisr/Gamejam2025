@@ -1,60 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://fbfggud2t5qm"]
+[gd_scene load_steps=7 format=3 uid="uid://fbfggud2t5qm"]
 
 [ext_resource type="PackedScene" uid="uid://c8vkxrhkn1x14" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://cqlfw2wddq65f" path="res://Scripts/game.gd" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://cuokc8tyiqm2y" path="res://Scenes/level1.tscn" id="2_wowpa"]
 [ext_resource type="PackedScene" uid="uid://bf8tva4a0iqa5" path="res://Scenes/killzone.tscn" id="4_3dryh"]
-[ext_resource type="PackedScene" uid="uid://0e0c47alcjyt" path="res://Scenes/enemy.tscn" id="6_i6g32"]
-[ext_resource type="Script" uid="uid://dgth4ad6lj02l" path="res://Scripts/intro.gd" id="6_v158k"]
 
-[sub_resource type="Animation" id="Animation_1l0tm"]
-resource_name = "Intro"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 7.0333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("Player:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
+[sub_resource type="GDScript" id="GDScript_3dryh"]
+script/source = "extends Node2D
+@onready var player: CharacterBody2D = $Player
 
-[sub_resource type="Animation" id="Animation_v158k"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
+func _ready():
+	pass
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4fw4"]
-_data = {
-&"Intro": SubResource("Animation_1l0tm"),
-&"RESET": SubResource("Animation_v158k")
-}
+func _on_cutscene_finished():
+	# Switch to your level or enable player controls
+	get_tree().change_scene_to_file(\"res://game.tscn\")
+"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3dryh"]
 
@@ -64,18 +25,11 @@ script = ExtResource("1_wrm1d")
 [node name="Level" parent="." instance=ExtResource("2_wowpa")]
 
 [node name="Character" type="Node2D" parent="."]
-script = ExtResource("6_v158k")
-
-[node name="ColorRect" type="ColorRect" parent="Character"]
-offset_left = -924.0
-offset_top = -282.0
-offset_right = -350.0
-offset_bottom = 43.0
-color = Color(0, 0, 0, 0)
+script = SubResource("GDScript_3dryh")
 
 [node name="Player" parent="Character" groups=["player"] instance=ExtResource("1_ebmjs")]
 z_index = 1
-position = Vector2(-648, -94)
+position = Vector2(880, -175)
 scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="Character/Player"]
@@ -85,11 +39,6 @@ limit_bottom = 100
 limit_smoothed = true
 position_smoothing_speed = 3.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Character"]
-libraries = {
-&"": SubResource("AnimationLibrary_h4fw4")
-}
-
 [node name="Killzone" parent="." instance=ExtResource("4_3dryh")]
 position = Vector2(1, 99)
 
@@ -97,7 +46,3 @@ position = Vector2(1, 99)
 visible = false
 position = Vector2(0, 200)
 shape = SubResource("WorldBoundaryShape2D_3dryh")
-
-[node name="Enemy" parent="." instance=ExtResource("6_i6g32")]
-position = Vector2(50, -100)
-scale = Vector2(1.675, 1.675)

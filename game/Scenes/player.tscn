@@ -1,32 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://c8vkxrhkn1x14"]
+[gd_scene load_steps=31 format=3 uid="uid://c8vkxrhkn1x14"]
 
 [ext_resource type="Script" uid="uid://b70hlgdqo5tts" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://f6xqr1en2pkk" path="res://Assets/sprites/Walk.png" id="2_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dwcgiolaeturu" path="res://Assets/sprites/Idle.png" id="2_fkybt"]
-[ext_resource type="Texture2D" uid="uid://dop6c7jm5jftp" path="res://Assets/sprites/Attack.png" id="2_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://e3vsvgjpnxnx" path="res://Assets/sprites/Jump.png" id="3_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://t4smpwmg4vji" path="res://Assets/sprites/Run.png" id="4_3smsa"]
-[ext_resource type="Script" uid="uid://cnl2wtcqct0is" path="res://Scenes/attack_ar.gd" id="7_3smsa"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
-atlas = ExtResource("2_x3wgy")
-region = Rect2(0, 0, 99, 146)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xuaoq"]
-atlas = ExtResource("2_x3wgy")
-region = Rect2(99, 0, 99, 146)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wohnl"]
-atlas = ExtResource("2_x3wgy")
-region = Rect2(199, 0, 126, 146)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_36dho"]
-atlas = ExtResource("2_x3wgy")
-region = Rect2(363, 0, 103, 146)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yh6i2"]
-atlas = ExtResource("2_x3wgy")
-region = Rect2(465, 0, 75, 146)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
 atlas = ExtResource("2_fkybt")
@@ -124,26 +102,6 @@ region = Rect2(224, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3smsa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xuaoq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wohnl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_36dho")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yh6i2")
-}],
-"loop": false,
-"name": &"Attack",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_8erm5")
 }, {
 "duration": 1.0,
@@ -233,33 +191,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3smsa"]
-size = Vector2(13, 24)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_3smsa"]
-radius = 58.077534
+size = Vector2(13.5, 22)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cvnsp")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]
 position = Vector2(5, -10)
 sprite_frames = SubResource("SpriteFrames_x3wgy")
-animation = &"Attack"
+animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, -6)
+position = Vector2(4.75, -5)
 shape = SubResource("RectangleShape2D_3smsa")
-
-[node name="AttackArea" type="Area2D" parent="."]
-script = ExtResource("7_3smsa")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(45, 6)
-shape = SubResource("CircleShape2D_3smsa")
-
-[node name="AttackTimer" type="Timer" parent="."]
-
-[node name="CooldownTimer" type="Timer" parent="."]
 
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
